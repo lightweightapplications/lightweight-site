@@ -211,21 +211,75 @@
                                 <a href="#cs-shield">CS Shield</a>
                             </div>
                         </li>
+                        <li>
+                            <a href="#cs-shield">CS Shield</a>
+                            <div class="dropdown">
+                                <a href="#cs-shield/privacy-policy">Privacy Policy</a>
+                            </div>
+                        </li>
                     </ul>
                 </nav>
             </div>
         </div>
     </header>
 
-    <main>
-        <div class="container">
+
+    <main id="main-content">
+        <div class="container" id="home-section">
             <section class="hero">
                 <h1>Lightweight Applications</h1>
                 <p>Creating efficient, performant apps across multiple marketplaces</p>
             </section>
         </div>
+        <div class="container" id="cs-shield-section" style="display:none">
+            <section class="hero">
+                <h1>CS Shield</h1>
+                <p>Welcome to CS Shield. <a href="#cs-shield/privacy-policy">View Privacy Policy</a></p>
+            </section>
+        </div>
+        <div class="container" id="privacy-policy-section" style="display:none">
+            <section class="hero">
+                <h1>Privacy Policy</h1>
+                <p>
+                    <strong>CS Shield Privacy Policy</strong>
+                </p>
+                <p>
+                    CS Shield is designed with privacy as a core principle. We do <strong>not</strong> store, process, or retain any customer details, contact submission content, or any personally identifiable information (PII) from users or their customers.
+                </p>
+                <p>
+                    The only information we keep is a simple count of how many contact submissions have been processed by the app. This count is used solely for operational and statistical purposes and cannot be linked to any individual, customer, or submission.
+                </p>
+                <p>
+                    No names, email addresses, message content, or any other data from submissions are ever saved or logged by CS Shield.
+                </p>
+                <p>
+                    If you have any questions about this privacy policy, please contact us via the support channels provided in the app.
+                </p>
+                <p><a href="#cs-shield">Back to CS Shield</a></p>
+            </section>
+        </div>
     </main>
 
+    <script>
+    // Simple client-side routing
+    function showSection(section) {
+        document.getElementById('home-section').style.display = section === 'home' ? '' : 'none';
+        document.getElementById('cs-shield-section').style.display = section === 'cs-shield' ? '' : 'none';
+        document.getElementById('privacy-policy-section').style.display = section === 'privacy-policy' ? '' : 'none';
+    }
+    function handleRoute() {
+        const hash = window.location.hash;
+        if (hash === '#cs-shield') {
+            showSection('cs-shield');
+        } else if (hash === '#cs-shield/privacy-policy') {
+            showSection('privacy-policy');
+        } else {
+            showSection('home');
+        }
+    }
+    window.addEventListener('hashchange', handleRoute);
+    window.addEventListener('DOMContentLoaded', handleRoute);
+    </script>
     <footer>
         <div class="container">
             <p>&copy; 2026 Lightweight Applications. All rights reserved.</p>
