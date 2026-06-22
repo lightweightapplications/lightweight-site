@@ -209,12 +209,19 @@
                             <a href="#shopify">Shopify</a>
                             <div class="dropdown">
                                 <a href="#cs-shield">CS Shield</a>
+                                <a href="#smarttags">SmartTags</a>
                             </div>
                         </li>
                         <li>
                             <a href="#cs-shield">CS Shield</a>
                             <div class="dropdown">
                                 <a href="#cs-shield/privacy-policy">Privacy Policy</a>
+                            </div>
+                        </li>
+                        <li>
+                            <a href="#smarttags">SmartTags</a>
+                            <div class="dropdown">
+                                <a href="#smarttags/privacy-policy">Privacy Policy</a>
                             </div>
                         </li>
                     </ul>
@@ -258,6 +265,39 @@
                 <p><a href="#cs-shield">Back to CS Shield</a></p>
             </section>
         </div>
+        <div class="container" id="smarttags-section" style="display:none">
+            <section class="hero">
+                <h1>SmartTags</h1>
+                <p>Automatically tag your orders, customers, and products with rules you define. <a href="#smarttags/privacy-policy">View Privacy Policy</a></p>
+            </section>
+        </div>
+        <div class="container" id="smarttags-privacy-section" style="display:none">
+            <section class="hero">
+                <h1>Privacy Policy</h1>
+                <p>
+                    <strong>SmartTags Privacy Policy</strong>
+                </p>
+                <p>
+                    SmartTags applies tags to your orders, customers, and products based on rules you configure. It acts as a data processor, operating solely on your documented instructions.
+                </p>
+                <p>
+                    Webhook data we receive (such as order, customer, and product fields) is evaluated <strong>in memory and immediately discarded</strong> — it is never stored.
+                </p>
+                <p>
+                    The only data we retain is a privacy-friendly audit log consisting of resource IDs and the tag values applied, along with your encrypted Shopify access token. We do <strong>not</strong> store names, email addresses, phone numbers, postal addresses, or order contents.
+                </p>
+                <p>
+                    Audit-log records are automatically purged after 90 days. Your data is removed when you uninstall the app, and we honor GDPR/CCPA <code>customers/redact</code> and <code>shop/redact</code> requests.
+                </p>
+                <p>
+                    Your data is never sold or used for any secondary purpose. All data is encrypted in transit (TLS) and at rest.
+                </p>
+                <p>
+                    If you have any questions about this privacy policy, please contact us via the support channels provided in the app.
+                </p>
+                <p><a href="#smarttags">Back to SmartTags</a></p>
+            </section>
+        </div>
     </main>
 
     <script>
@@ -266,6 +306,8 @@
         document.getElementById('home-section').style.display = section === 'home' ? '' : 'none';
         document.getElementById('cs-shield-section').style.display = section === 'cs-shield' ? '' : 'none';
         document.getElementById('privacy-policy-section').style.display = section === 'privacy-policy' ? '' : 'none';
+        document.getElementById('smarttags-section').style.display = section === 'smarttags' ? '' : 'none';
+        document.getElementById('smarttags-privacy-section').style.display = section === 'smarttags-privacy' ? '' : 'none';
     }
     function handleRoute() {
         const hash = window.location.hash;
@@ -273,6 +315,10 @@
             showSection('cs-shield');
         } else if (hash === '#cs-shield/privacy-policy') {
             showSection('privacy-policy');
+        } else if (hash === '#smarttags') {
+            showSection('smarttags');
+        } else if (hash === '#smarttags/privacy-policy') {
+            showSection('smarttags-privacy');
         } else {
             showSection('home');
         }
